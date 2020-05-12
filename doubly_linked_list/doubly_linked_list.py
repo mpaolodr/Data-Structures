@@ -197,7 +197,6 @@ class DoublyLinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-
     """Removes a node from the list and handles cases where
     the node was the head or the tail"""
 
@@ -225,4 +224,19 @@ class DoublyLinkedList:
     """Returns the highest value currently in the list"""
 
     def get_max(self):
-        pass
+        if not self.head and not self.tail:
+            return
+
+        if self.head == self.tail:
+            return self.head.value
+
+        current = self.head
+        value = self.head.value
+
+        for i in range(self.length):
+            if current.value > value:
+                value = current.value
+
+            current = current.next
+
+        return value
