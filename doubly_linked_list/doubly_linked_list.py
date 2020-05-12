@@ -96,7 +96,6 @@ class DoublyLinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
@@ -120,7 +119,25 @@ class DoublyLinkedList:
     the node was the head or the tail"""
 
     def delete(self, node):
-        pass
+        self.length -= 1
+        # node is the only item in list
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+
+        # if node is current head
+        elif self.head == node:
+            self.head = self.head.next
+            self.head.prev = None
+
+        # if node is current tail:
+        elif self.tail == node:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+        else:
+            node.next.prev = node.prev
+            node.prev.next = node.next
 
     """Returns the highest value currently in the list"""
 
