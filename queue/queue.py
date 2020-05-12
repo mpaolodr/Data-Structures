@@ -122,7 +122,7 @@ class Node:
 #             return data
 
 
-# Using Stack Class
+# Using Stack Class (Stretch)
 class Queue:
     def __init__(self):
         self.in_storage = Stack()
